@@ -87,3 +87,26 @@ main img {
 nav a:hover { 
 
     text-decoration: underline; 
+p { 
+
+    font-size: 1.1em; 
+
+} 
+
+ 
+
+a { 
+
+    color: #4CAF50; 
+
+    text-decoration: none; 
+
+} 
+
+ 
+
+a:hover { 
+
+    text-decoration: underline; 
+
+} 
