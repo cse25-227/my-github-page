@@ -122,5 +122,99 @@ main a[href^="mailto:"] {
     color: #ff5722; 
 
     font-weight: bold; 
-
+ 
 } 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.light-fixture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.bulb-svg {
+    width: 150px;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+#bulb {
+    fill: #e0e0e0; /* Off color */
+    stroke: #aaa;
+    stroke-width: 1px;
+    transition: fill 0.3s ease, filter 0.3s ease;
+}
+
+/* Light on state */
+.light-on #bulb {
+    fill: #ffeb3b; /* On color */
+    filter: drop-shadow(0 0 20px rgba(255, 235, 59, 0.8));
+    stroke: #fbc02d;
+}
+
+/* The Pull String */
+.pull-string {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-top: -30px; /* Overlap with the base slightly */
+    transition: transform 0.1s ease;
+}
+
+.string-line {
+    width: 2px;
+    height: 100px;
+    background-color: #777;
+}
+
+.string-handle {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Pulling animation */
+.pull-string.pulling {
+    transform: translateY(10px);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
