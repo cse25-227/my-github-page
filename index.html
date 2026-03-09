@@ -71,11 +71,25 @@
 <p>&copy; 2025 Your Name</p>
 
 </footer>
+ <script>
+        const pullString = document.getElementById('pull-string');
+        const bulb = document.getElementById('bulb');
+        const lightFixture = document.querySelector('.light-fixture');
 
+        pullString.addEventListener('click', () => {
+            // Add a "pull" animation effect
+            pullString.classList.add('pulling');
+            setTimeout(() => pullString.classList.remove('pulling'), 200);
+            
+            // Toggle the light
+            lightFixture.classList.toggle('light-on');
+        });
+    </script>
 </body>
 
 
 </html>
+
 
 
 
