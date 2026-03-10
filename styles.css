@@ -1,6 +1,4 @@
  
-
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -12,56 +10,56 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     text-align: center;
 }
-.header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.about-avatar {
-    width: 40px; /* Even smaller */
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-}
 
 .header-content {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    margin-bottom: 0.5rem;
 }
 
 .about-avatar {
-    width: 50px;
-    height: 50px;
+    width: 45px; 
+    height: 45px;
     border-radius: 50%;
-    background-color: #eee;
-    border: 2px solid #fff;
 }
+
 nav a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
+    font-weight: bold;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Base Main Area Styling */
 main {
     padding: 4rem 2rem;
     max-width: 800px;
     margin: auto;
     text-align: center;
     position: relative;
-    background-color: #1a1a1a;
+    background-color: #1a1a1a; /* Dark by default for index page bulb effect */
     color: #eee;
     transition: background 0.6s ease;
     min-height: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Dramatic yellow glow when lit */
+/* Light Background for About/Contact pages */
+.about-main {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Dramatic yellow glow when bulb is lit (only for index page) */
 main.light-on {
     background: radial-gradient(circle at 50% 180px, #4d4d00 0%, #1a1a1a 80%);
 }
@@ -100,11 +98,10 @@ main.light-on {
 .bulb-svg {
     width: 80px;
     height: auto;
-    transition: filter 0.3s ease;
 }
 
 #bulb {
-    fill: #888; /* Lighter grey for visibility */
+    fill: #888; 
     stroke: #aaa;
     stroke-width: 1.5px;
     transition: fill 0.4s ease, filter 0.4s ease;
@@ -129,7 +126,7 @@ main.light-on #bulb {
 .string-line {
     width: 2px;
     height: 70px;
-    background-color: #ccc; /* Very visible line */
+    background-color: #ccc;
     transition: background-color 0.4s ease;
 }
 
@@ -140,10 +137,10 @@ main.light-on .string-line {
 .string-handle {
     width: 22px;
     height: 22px;
-    background-color: #aaa; /* Lighter handle */
+    background-color: #aaa;
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    transition: background-color 0.4s ease, transform 0.1s ease;
+    transition: background-color 0.4s ease;
 }
 
 main.light-on .string-handle {
@@ -177,11 +174,12 @@ main.light-on .string-handle {
 
 footer {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     background: #333;
     color: #fff;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
+
 
