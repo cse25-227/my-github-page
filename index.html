@@ -31,64 +31,66 @@
 
 </header>
 
-
-<main>
-
-<p>This is a simple webpage hosted on GitHub Pages.</p>
-
-<p>Pull the string to light up the bulb:</p>
+<main id="main-content">
+        <p class="instruction">Pull the string to light up the bulb:</p>
         
-        <div class="light-fixture">
-            <svg class="bulb-svg" width="100" height="150" viewBox="0 0 100 150">
-                <!-- The Socket -->
-                <rect x="35" y="0" width="30" height="20" fill="#333" />
+        <div class="light-container">
+            <div class="light-fixture">
+                <svg class="bulb-svg" width="80" height="120" viewBox="0 0 100 150">
+                    <rect x="35" y="0" width="30" height="20" fill="#333" />
+                    <path id="bulb" class="bulb-off" d="M50,20 C30,20 15,35 15,55 C15,75 35,90 35,110 L65,110 C65,90 85,75 85,55 C85,35 70,20 50,20 Z" />
+                    <path d="M40,110 L40,120 M50,110 L50,125 M60,110 L60,120" stroke="#555" stroke-width="2" />
+                    <rect x="35" y="110" width="30" height="15" fill="#555" />
+                </svg>
                 
-                <!-- The Bulb -->
-                <path id="bulb" class="bulb-off" d="M50,20 C30,20 15,35 15,55 C15,75 35,90 35,110 L65,110 C65,90 85,75 85,55 C85,35 70,20 50,20 Z" />
-                
-                <!-- The Filament -->
-                <path d="M40,110 L40,120 M50,110 L50,125 M60,110 L60,120" stroke="#555" stroke-width="2" />
-                
-                <!-- The Base -->
-                <rect x="35" y="110" width="30" height="15" fill="#555" />
-            </svg>
-            
-            <!-- The String -->
-            <div id="pull-string" class="pull-string">
-                <div class="string-line"></div>
-                <div class="string-handle"></div>
+                <div id="pull-string" class="pull-string">
+                    <div class="string-line"></div>
+                    <div class="string-handle"></div>
+                </div>
             </div>
+
+            <div id="welcome-message" class="welcome-text">U ARE WELCOME</div>
         </div>
 
+        <p class="footer-link">Visit <a href="https://github.com">GitHub</a> to learn more about coding.</p>
+    </main>
 
-<p>Visit <a href="https://github.com">GitHub</a> to learn more about coding.</p>
+    <footer>
+        <p>&copy; 2026 Your Name</p>
+    </footer>
 
-</main>
-
-
-<footer>
-
-<p>&copy; 2025 Your Name</p>
-
-</footer>
- <script>
+    <script>
         const pullString = document.getElementById('pull-string');
-        const bulb = document.getElementById('bulb');
-        const lightFixture = document.querySelector('.light-fixture');
+        const mainContent = document.getElementById('main-content');
+        const welcomeMessage = document.getElementById('welcome-message');
+        let messageTimeout;
 
         pullString.addEventListener('click', () => {
-            // Add a "pull" animation effect
             pullString.classList.add('pulling');
             setTimeout(() => pullString.classList.remove('pulling'), 200);
             
-            // Toggle the light
-            lightFixture.classList.toggle('light-on');
+            // Toggle light-on on the main container to affect background
+            const isOn = mainContent.classList.toggle('light-on');
+
+            if (isOn) {
+                welcomeMessage.classList.add('visible');
+                
+                if (messageTimeout) clearTimeout(messageTimeout);
+                
+                messageTimeout = setTimeout(() => {
+                    welcomeMessage.classList.remove('visible');
+                }, 5000);
+            } else {
+                welcomeMessage.classList.remove('visible');
+            }
         });
     </script>
+
 </body>
 
 
 </html>
+
 
 
 
