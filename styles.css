@@ -124,6 +124,8 @@ main a[href^="mailto:"] {
     font-weight: bold; 
  
 } 
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -146,10 +148,43 @@ nav a {
 }
 
 main {
-    padding: 2rem;
+    padding: 4rem 2rem;
     max-width: 800px;
     margin: auto;
     text-align: center;
+    position: relative;
+    background-color: #1a1a1a;
+    color: #eee;
+    transition: background 0.6s ease;
+    min-height: 500px;
+}
+
+/* Dramatic yellow glow when lit */
+main.light-on {
+    background: radial-gradient(circle at 50% 180px, #4d4d00 0%, #1a1a1a 80%);
+}
+
+.instruction {
+    color: #888;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.footer-link {
+    margin-top: 3rem;
+    color: #666;
+}
+
+.footer-link a {
+    color: #888;
+}
+
+.light-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px;
 }
 
 .light-fixture {
@@ -157,56 +192,85 @@ main {
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding: 20px;
+    z-index: 2;
 }
 
 .bulb-svg {
-    width: 150px;
+    width: 80px;
     height: auto;
     transition: filter 0.3s ease;
 }
 
 #bulb {
-    fill: #e0e0e0; /* Off color */
+    fill: #888; /* Lighter grey for visibility */
     stroke: #aaa;
-    stroke-width: 1px;
-    transition: fill 0.3s ease, filter 0.3s ease;
+    stroke-width: 1.5px;
+    transition: fill 0.4s ease, filter 0.4s ease;
 }
 
-/* Light on state */
-.light-on #bulb {
-    fill: #ffeb3b; /* On color */
-    filter: drop-shadow(0 0 20px rgba(255, 235, 59, 0.8));
-    stroke: #fbc02d;
+main.light-on #bulb {
+    fill: #fff700;
+    filter: drop-shadow(0 0 40px rgba(255, 247, 0, 0.9));
+    stroke: #ffcc00;
 }
 
-/* The Pull String */
 .pull-string {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    margin-top: -30px; /* Overlap with the base slightly */
+    margin-top: -15px;
+    padding: 10px;
     transition: transform 0.1s ease;
 }
 
 .string-line {
     width: 2px;
-    height: 100px;
-    background-color: #777;
+    height: 70px;
+    background-color: #ccc; /* Very visible line */
+    transition: background-color 0.4s ease;
+}
+
+main.light-on .string-line {
+    background-color: #eee;
 }
 
 .string-handle {
-    width: 20px;
-    height: 20px;
-    background-color: #333;
+    width: 22px;
+    height: 22px;
+    background-color: #aaa; /* Lighter handle */
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    transition: background-color 0.4s ease, transform 0.1s ease;
 }
 
-/* Pulling animation */
+main.light-on .string-handle {
+    background-color: #ccc;
+}
+
 .pull-string.pulling {
     transform: translateY(10px);
+}
+
+.welcome-text {
+    position: absolute;
+    left: calc(50% + 80px);
+    top: 40%;
+    transform: translateY(-50%) translateX(30px);
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #fff700;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    text-shadow: 0 0 15px rgba(255, 247, 0, 0.7);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.welcome-text.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 footer {
@@ -218,3 +282,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
+   
+
+
